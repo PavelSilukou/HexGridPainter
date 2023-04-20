@@ -58,7 +58,7 @@ namespace HexGridPainter
             var selectedHex = Selection.activeGameObject;
             if (selectedHex == null || _selectedGameObject == null || selectedHex == _selectedGameObject) return;
 
-            var obj = Instantiate(_target, _selectedGameObject.transform) as MonoBehaviour;
+            var obj = PrefabUtility.InstantiatePrefab(_target, _selectedGameObject.transform) as MonoBehaviour;
             if (obj != null) obj.transform.localPosition = selectedHex.transform.localPosition;
 
             DestroyImmediate(selectedHex);
